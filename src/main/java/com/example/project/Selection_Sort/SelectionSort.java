@@ -8,6 +8,31 @@ public class SelectionSort {
 
     // PART A. implementing selection sort
     public static int[] selectionSort(int[] elements) {
+
+        int currentNum = 0;
+        boolean foundCorrectPlace = false;
+        int currentSearchIndex = 0;
+        int tempInt = 0;
+
+        for (int i = 0; i < elements.length; i++) { //for loop to search through all elements
+
+            currentNum = elements[i];
+            foundCorrectPlace = false;
+            currentSearchIndex = i - 1;
+
+            while(!foundCorrectPlace && currentSearchIndex > -1) { //while loop to keep searching until the element is in the correct place
+
+                if (currentNum < elements[currentSearchIndex]) { //swap 
+                    tempInt = elements[currentSearchIndex];
+                    elements[currentSearchIndex] = currentNum;
+                    elements[currentSearchIndex + 1] = tempInt;
+                    
+                } else {
+                    foundCorrectPlace = true;
+                }
+                currentSearchIndex--;
+            }
+        }
        
         return elements;
     }
